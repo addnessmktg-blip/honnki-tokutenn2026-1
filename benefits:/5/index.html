@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>特典5｜起業オンライン100選 完全ガイド</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root{
+      --bg:#0a0a0a;
+      --panel:#141414;
+      --text:#f0f0f0;
+      --sub:#a0a0a0;
+      --gold:#d4af37;
+      --gold-border:#b38728;
+      --gold-grad:linear-gradient(135deg,#bf953f,#fcf6ba,#b38728,#fbf5b7,#aa771c);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Noto Sans JP',sans-serif;
+      min-height:100vh;
+      position:relative;
+    }
+    body::before{
+      content:'';
+      position:fixed;inset:0;
+      background-image:
+        radial-gradient(circle at 15% 50%, rgba(191,149,63,.03) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(252,246,186,.03) 0%, transparent 25%);
+      z-index:-1;
+    }
+
+    .container{
+      max-width:900px;
+      margin:0 auto;
+      padding:2.5rem 1.2rem 4rem;
+    }
+
+    a{text-decoration:none;color:inherit}
+
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:.6rem;
+      font-family:'Cinzel',serif;
+      font-size:.85rem;
+      letter-spacing:.08em;
+      color:var(--sub);
+      border:1px solid rgba(179,135,40,.4);
+      padding:.6rem 1rem;
+      border-radius:999px;
+      margin-bottom:2rem;
+      transition:.25s;
+    }
+    .back:hover{
+      background:var(--gold-grad);
+      color:#000;
+      border-color:transparent;
+    }
+
+    .hero{
+      text-align:center;
+      background:var(--panel);
+      border:1px solid rgba(179,135,40,.35);
+      border-radius:6px;
+      padding:3rem 1.5rem;
+      margin-bottom:2.5rem;
+      position:relative;
+    }
+    .hero::before{
+      content:'';
+      position:absolute;left:0;top:0;right:0;height:3px;
+      background:var(--gold-grad);
+    }
+
+    .badge{
+      font-family:'Cinzel',serif;
+      font-size:.85rem;
+      color:var(--gold);
+      border-bottom:1px solid var(--gold-border);
+      padding-bottom:.3rem;
+      display:inline-block;
+      margin-bottom:1.2rem;
+      letter-spacing:.12em;
+    }
+
+    h1{
+      font-family:'Noto Serif JP',serif;
+      font-size:2rem;
+      line-height:1.5;
+      margin-bottom:1rem;
+    }
+    .gold{
+      background:var(--gold-grad);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .lead{
+      color:var(--sub);
+      max-width:640px;
+      margin:0 auto;
+      line-height:1.9;
+      font-size:.95rem;
+    }
+
+    .points{
+      margin:2.5rem 0;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:1.2rem;
+    }
+    @media(min-width:768px){
+      .points{grid-template-columns:repeat(3,1fr)}
+    }
+    .point{
+      background:#111;
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:6px;
+      padding:1.4rem 1.2rem;
+    }
+    .point i{
+      color:var(--gold);
+      margin-bottom:.6rem;
+      display:block;
+    }
+    .point h3{
+      font-family:'Noto Serif JP',serif;
+      font-size:1.05rem;
+      margin-bottom:.4rem;
+    }
+    .point p{
+      color:var(--sub);
+      font-size:.9rem;
+      line-height:1.7;
+    }
+
+    .notice{
+      text-align:center;
+      color:#777;
+      font-size:.8rem;
+      margin-bottom:1.2rem;
+    }
+
+    .cta{
+      text-align:center;
+      margin-top:1.5rem;
+    }
+    .cta a{
+      display:inline-block;
+      width:min(420px,100%);
+      padding:1.2rem;
+      font-family:'Cinzel',serif;
+      letter-spacing:.12em;
+      font-weight:700;
+      color:var(--gold);
+      border:1px solid var(--gold-border);
+      position:relative;
+      overflow:hidden;
+      transition:.3s;
+    }
+    .cta a::before{
+      content:'';
+      position:absolute;inset:0;
+      background:var(--gold-grad);
+      transform:translateX(-100%);
+      transition:.3s;
+      z-index:-1;
+    }
+    .cta a:hover{
+      color:#000;
+      border-color:transparent;
+    }
+    .cta a:hover::before{
+      transform:translateX(0);
+    }
+
+    footer{
+      text-align:center;
+      margin-top:4rem;
+      color:#444;
+      font-size:.8rem;
+      border-top:1px solid rgba(255,255,255,.05);
+      padding-top:2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <a href="../../" class="back">← BACK TO LIST</a>
+
+    <section class="hero">
+      <span class="badge">SPECIAL BONUS 05</span>
+      <h1>
+        <span class="gold">起業オンライン100選</span><br>
+        完全ガイドブック
+      </h1>
+      <p class="lead">
+        「自分に何ができるか分からない」を終わらせる。<br>
+        検索・分類・実行手順まで揃えた、<strong>実践特化型Webツール</strong>です。
+      </p>
+    </section>
+
+    <section class="points">
+      <div class="point">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <h3>検索できる100アイデア</h3>
+        <p>顔出しNG・AI活用・副業向けなど、条件検索ですぐ絞り込み。</p>
+      </div>
+      <div class="point">
+        <i class="fa-solid fa-route"></i>
+        <h3>0→1手順を完全可視化</h3>
+        <p>「何からやるか分からない」を防ぐ、具体ステップ付き。</p>
+      </div>
+      <div class="point">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>今日の行動が決まる</h3>
+        <p>読むだけで終わらない。今すぐ動ける設計。</p>
+      </div>
+    </section>
+
+    <p class="notice">
+      ※ この先は外部ツール（別サイト）が開きます
+    </p>
+
+    <div class="cta">
+      <a href="https://addness-kigyo-guide2026.netlify.app" target="_blank" rel="noopener">
+        OPEN WEB TOOL ↗
+      </a>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Premium Business Program</p>
+    </footer>
+
+  </div>
+</body>
+</html>
+ 

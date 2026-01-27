@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>需要再点火オファー設計 | Premium Bonus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- Base Variables --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --content-bg: #111111;
+            --text-main: #e0e0e0;
+            --text-sub: #a0a0a0;
+            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            --gold-text: #d4af37;
+            --gold-border: #b38728;
+            --heading-font: 'Noto Serif JP', serif;
+            --body-font: 'Noto Sans JP', sans-serif;
+        }
+
+        /* --- Reset & Base Styles --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--body-font);
+            line-height: 2.0;
+            letter-spacing: 0.05em;
+            overflow-x: hidden;
+        }
+
+        /* 背景装飾 */
+        body::before {
+            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(circle at 50% 0%, rgba(191, 149, 63, 0.05) 0%, transparent 50%);
+            z-index: -1; pointer-events: none;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* --- Layout --- */
+        .container {
+            max-width: 840px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* --- Navigation --- */
+        .nav-bar {
+            padding: 30px 0;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--text-sub); font-size: 0.9rem; font-weight: 500;
+            cursor: pointer;
+        }
+        .back-link:hover { color: var(--gold-text); transform: translateX(-5px); }
+
+        /* --- Article Header --- */
+        .article-header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(179, 135, 40, 0.2);
+        }
+        .tag-pill {
+            display: inline-block; padding: 4px 16px; 
+            border: 1px solid var(--gold-border);
+            color: var(--gold-text); font-size: 0.75rem; 
+            border-radius: 50px; margin-bottom: 20px;
+            font-family: 'Cinzel', serif; letter-spacing: 0.1em;
+        }
+        .article-title {
+            font-family: var(--heading-font);
+            font-size: 2.2rem;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .gold-highlight {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .article-lead {
+            font-size: 1rem;
+            color: var(--text-sub);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- Table of Contents (目次) --- */
+        .toc-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(179, 135, 40, 0.3);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 60px;
+        }
+        .toc-title {
+            text-align: center;
+            font-family: var(--heading-font);
+            color: var(--gold-text);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            letter-spacing: 0.1em;
+        }
+        .toc-list {
+            list-style: none;
+            padding: 0;
+        }
+        .toc-list li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .toc-list li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 10px;
+            color: var(--gold-border);
+        }
+        .toc-list a {
+            color: var(--text-main);
+            border-bottom: 1px solid transparent;
+        }
+        .toc-list a:hover {
+            color: var(--gold-text);
+            border-bottom-color: var(--gold-text);
+        }
+
+        /* --- Article Body Styles --- */
+        .article-body {
+            font-size: 1.05rem;
+        }
+
+        /* H2 見出し */
+        .article-body h2 {
+            font-family: var(--heading-font);
+            font-size: 1.8rem;
+            color: #fff;
+            margin: 80px 0 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gold-border);
+            position: relative;
+        }
+        .article-body h2::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 30%; height: 2px;
+            background: var(--gold-gradient);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        /* H3 見出し */
+        .article-body h3 {
+            font-family: var(--heading-font);
+            font-size: 1.4rem;
+            color: var(--gold-text);
+            margin: 50px 0 20px;
+            padding-left: 15px;
+            border-left: 3px solid var(--gold-border);
+        }
+
+        /* 本文テキスト */
+        .article-body p {
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        /* 強調テキスト */
+        .article-body strong {
+            color: #fff;
+            background: linear-gradient(transparent 70%, rgba(179, 135, 40, 0.4) 70%);
+            padding: 0 2px;
+            font-weight: 700;
+        }
+
+        /* 箇条書き */
+        .article-body ul {
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+            color: var(--text-sub);
+        }
+        .article-body ul li {
+            margin-bottom: 0.8rem;
+            list-style-type: disc;
+        }
+
+        /* ポイント枠 */
+        .point-box {
+            background: #1a1a1a;
+            border: 1px solid var(--gold-border);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 4px;
+            position: relative;
+        }
+        .point-title {
+            position: absolute;
+            top: -14px;
+            left: 20px;
+            background: var(--bg-color);
+            padding: 0 15px;
+            color: var(--gold-text);
+            font-family: var(--heading-font);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        /* テンプレート枠（コピー用） */
+        .template-box {
+            background: #222;
+            border: 1px dashed #666;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: #fff;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            margin-bottom: 30px;
+        }
+        .copy-btn {
+            display: inline-block;
+            background: var(--gold-border);
+            color: #000;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        /* 画像スタイル */
+        .article-img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 30px 0;
+            border: 1px solid #333;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        /* --- Footer / Next Navigation --- */
+        .article-footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+        .next-btn {
+            display: inline-block;
+            padding: 1.2rem 4rem;
+            background: transparent;
+            color: var(--gold-text);
+            border: 1px solid var(--gold-border);
+            font-family: 'Cinzel', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .next-btn::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--gold-gradient); z-index: -1;
+            transform: translateX(-100%); transition: transform 0.3s ease;
+        }
+        .next-btn:hover { color: #000; }
+        .next-btn:hover::before { transform: translateX(0); }
+
+        @media (max-width: 768px) {
+            .article-title { font-size: 1.6rem; }
+            .container { padding: 0 15px 60px; }
+            .article-body h2 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <!-- 修正：ブラウザの戻る機能を使用 -->
+            <a onclick="history.back()" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i> 特典一覧に戻る
+            </a>
+        </nav>
+
+        <!-- Article Header -->
+        <header class="article-header">
+            <span class="tag-pill">SPECIAL BONUS 04</span>
+            <h1 class="article-title">
+                アドネス式<br>
+                <span class="gold-highlight">需要再点火<br>オファー設計</span>
+            </h1>
+            <p class="article-lead">
+                「以前は売れていたのに…」という商品を、<br>
+                もう一度売れる状態に戻すための手順書。
+            </p>
+        </header>
+
+        <!-- Table of Contents -->
+        <div class="toc-box">
+            <p class="toc-title">INDEX</p>
+            <ul class="toc-list">
+                <li><a href="#intro">はじめに：大切な考え方と用語</a></li>
+                <li><a href="#sec1">1. こんな症状が出ていませんか？</a></li>
+                <li><a href="#sec2">2. どこがズレているかを見つける</a></li>
+                <li><a href="#sec3">3. 商品を見直す（再設計①）</a></li>
+                <li><a href="#sec4">4. 伝え方を見直す（再設計②）</a></li>
+                <li><a href="#sec5">5. 証拠を見せる（再設計③）</a></li>
+                <li><a href="#sec6">6. オファーを強くする</a></li>
+                <li><a href="#sec7">7. テンプレートを埋めよう（30分ワーク）</a></li>
+                <li><a href="#sec8">8. 募集文を作ろう（10分）</a></li>
+            </ul>
+        </div>
+
+        <!-- Article Body -->
+        <article class="article-body">
+            
+            <h2 id="intro">はじめに</h2>
+            <div class="point-box">
+                <span class="point-title">CHECK</span>
+                <p><strong>こんなお悩みはありませんか？</strong></p>
+                <ul>
+                    <li>半年前、1年前はよく売れていた商品なのに、最近は問い合わせが減った</li>
+                    <li>申し込み率が下がってきた</li>
+                    <li>せっかく買ってもらっても、続けてもらえなくなった</li>
+                </ul>
+            </div>
+            <p>
+                この資料は、そんな「以前は売れていたのに…」という商品を、もう一度売れる状態に戻すためのガイドブックです。<br>
+                難しい専門知識は必要ありません。この資料を読みながら、用意されたテンプレートを埋めていくだけで、「どこがズレているのか」「どう直せばいいのか」が見えてきます。
+            </p>
+
+            <h3>大切な考え方</h3>
+            <p>
+                以前売れていたということは、お客様に<strong>「刺さるポイント」は必ず存在しています。</strong><br>
+                今売れなくなっているのは、その「刺さるポイント」が少しズレてしまっただけ。つまり、商品を一から作り直す必要はありません。ズレている部分だけを見つけて、直せばいいのです。
+            </p>
+
+            <h3>用語解説（3つだけ覚えてください）</h3>
+            <ul>
+                <li><strong>需要再点火（じゅようさいてんか）：</strong>「お客様に、また欲しい」と思ってもらえる状態に戻すこと。</li>
+                <li><strong>PMF（ピーエムエフ）：</strong>「Product Market Fit」の略。シンプルに言うと、「誰の、どんな悩みに、あなたの商品が刺さっているか」ということ。</li>
+                <li><strong>オファー：</strong>「何を・いくらで・どう届けるか」のセットのこと。商品の内容だけでなく、価格、特典、保証などを含めた「提案の全体像」を指します。</li>
+            </ul>
+
+            <h2 id="sec1">1. こんな症状が出ていませんか？</h2>
+            <p>需要が落ちている時、こんな症状が出ることが多いです。</p>
+            <ul>
+                <li><strong>形のない商品（コンサル等）：</strong>問い合わせが減った、継続してもらえなくなった、値上げすると離れていく</li>
+                <li><strong>形のある商品（化粧品等）：</strong>広告費に対して売上が悪くなった、ページを見ても買ってもらえなくなった、レビューが減った</li>
+            </ul>
+            <p>
+                これらの症状の原因は、業種を問わず<strong>「市場・痛み・約束」のどれかがズレている</strong>ことがほとんどです。
+            </p>
+
+            <h2 id="sec2">2. どこがズレているかを見つける</h2>
+            <p>PMF（誰の痛みに刺さっているか）のズレを、3つのステップで特定していきます。</p>
+            <ul>
+                <li><strong>Step 1：市場のチェック</strong><br>「以前買ってくれた人」と「今届けたい人」は同じですか？</li>
+                <li><strong>Step 2：痛みのチェック</strong><br>「以前のお客様が言っていた悩み」は、今も同じですか？</li>
+                <li><strong>Step 3：約束のチェック</strong><br>「商品で約束している変化」は、今も響いていますか？</li>
+            </ul>
+            <p>
+                多くの場合、ズレているのは1〜2箇所だけです。全部直そうとせず、特定した部分だけを直しましょう。
+            </p>
+
+            <!-- 画像差し込み -->
+            <div style="margin: 40px 0;">
+                <img src="https://placehold.jp/800x400.png?text=PMF+Flow+Chart" alt="PMF診断フロー図" class="article-img">
+                <p style="font-size: 0.8rem; color: #888; text-align: center; margin-top: 10px;">（図：PMF診断フロー図）</p>
+                <p style="font-size: 0.8rem; color: var(--gold-text); text-align: center; margin-top: 5px;">※ ここにご自身の画像のURLを貼り付けてください</p>
+            </div>
+
+            <h2 id="sec3">3. 商品を見直す（再設計①）</h2>
+            <h3>原則：「足す」ではなく「削る」</h3>
+            <p>
+                売れなくなると、つい商品の内容を増やしたくなりますよね。「もっと特典をつけよう」と。<br>
+                でも実は、増やすほど「何が売りなのか」がぼやけてしまうのです。逆に、<strong>3〜5個の要素に絞ることで、売りが明確になります。</strong>
+            </p>
+            <div class="point-box">
+                <span class="point-title">削るかどうかの判断基準</span>
+                <ul>
+                    <li><strong>残す：</strong>お客様が「これがほしい」と言ったもの</li>
+                    <li><strong>削る：</strong>自分が「教えたい」だけのもの、競合もやっているもの、成果に直結しないもの</li>
+                </ul>
+            </div>
+
+            <h2 id="sec4">4. 伝え方を見直す（再設計②）</h2>
+            <p>
+                商品が良くても、伝え方がズレていると買ってもらえません。お客様の心を動かすには、次の順番で伝えることが効果的です。
+            </p>
+            <p style="text-align: center; font-size: 1.2rem; font-weight: bold; color: var(--gold-text);">
+                伝える順番：痛み → 放置コスト → 約束
+            </p>
+            <ul>
+                <li><strong>痛み：</strong>お客様が普段使っている言葉で、悩みを具体的に表現します。</li>
+                <li><strong>放置コスト：</strong>「このまま放置するとどうなるか」を伝えます。人は「得られるもの」より「失うもの」に強く反応します。</li>
+                <li><strong>約束：</strong>「この商品で、最低でもこうなれる」と言い切ります。</li>
+            </ul>
+
+            <h2 id="sec5">5. 証拠を見せる（再設計③）</h2>
+            <p>
+                どれだけ良い商品でも、「本当にそうなれるの？」という疑いが消えなければ買ってもらえません。証拠は、その疑いを消す役割を持っています。
+            </p>
+            <h3>証拠の優先順位（強い順）</h3>
+            <ol style="margin-left: 20px; color: var(--text-sub);">
+                <li>お客様の成果実績（最も強力）</li>
+                <li>自分の実績</li>
+                <li>資格・経歴</li>
+                <li>推薦・メディア掲載</li>
+            </ol>
+            <p>
+                実績がまだ弱い場合は、無料モニターを募集して成果を出してもらうか、自分で約束した変化を達成して実績を作りましょう。
+            </p>
+
+            <h2 id="sec6">6. オファーを強くする</h2>
+            <p>
+                「オファー」とは、商品の提案全体のこと。価格、保証、特典などを含めた「買いやすさ」を設計します。
+            </p>
+            <ul>
+                <li><strong>価格根拠：</strong>「なぜこの価格なのか」を説明できれば、高くても買ってもらえます。（例：投資回収、時間短縮、他社比較）</li>
+                <li><strong>継続理由：</strong>一度買ってもらった後、続けてもらうための仕掛けです。（例：段階ゴール、コミュニティ）</li>
+                <li><strong>リスク反転：</strong>「もし効果がなかったら…」という不安を消す仕組みです。（例：返金保証、お試し期間）</li>
+            </ul>
+
+            <h2 id="sec7">7. テンプレートを埋めよう（30分ワーク）</h2>
+            <p>
+                ここからが実践です。下のテンプレートをコピーして、上から順に埋めていってください。<br>
+                迷ったら「〇〇かも」で仮置きしてOKです。
+            </p>
+
+            <button class="copy-btn" onclick="copyToClipboard('template1')">📋 テキストをコピーする</button>
+            <pre class="template-box" id="template1">
+■ 基本情報
+商品名：＿＿＿＿＿＿＿＿＿＿＿＿
+価格：＿＿＿＿＿円
+期間：＿＿＿＿＿
+
+■ PMF（誰の悩みに刺さっているか）
+【市場】
+　属性（性別・年代など）：＿＿＿＿＿＿＿＿＿＿
+　状況（どんな状態の人か）：＿＿＿＿＿＿＿＿＿＿
+
+【痛み】※お客様の口癖で書く
+　「＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿」
+　（例：「SNS毎日投稿しても問い合わせ0」）
+
+【約束】※最低でもこうなれる、というラインで書く
+　＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+　（例：「3ヶ月で月+10万の仕組み完成」）
+
+■ 商品構成（3〜5個に絞る）
+① メイン成果：＿＿＿＿＿＿＿＿＿＿
+② サポート：＿＿＿＿＿＿＿＿＿＿
+③ 保証/特典：＿＿＿＿＿＿＿＿＿＿
+④ 差別化：＿＿＿＿＿＿＿＿＿＿
+⑤ 継続理由：＿＿＿＿＿＿＿＿＿＿
+
+■ 伝え方・訴求
+【痛み】「＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿」
+【放置コスト】このまま＿＿＿経つと、＿＿＿＿＿＿
+【約束】＿＿＿で、＿＿＿＿＿＿を実現
+
+■ 証拠
+※数字があれば数字で書く（本数/人数/期間など）
+【お客様の成果】＿＿＿＿＿＿＿＿＿＿
+【自分の実績】＿＿＿＿＿＿＿＿＿＿
+【プロセス】＿＿＿＿＿＿＿＿＿＿
+
+■ オファーの強さ
+【価格根拠】＿＿＿＿＿＿＿＿＿＿
+【継続理由】＿＿＿＿＿＿＿＿＿＿
+【リスク反転】＿＿＿＿＿＿＿＿＿＿
+
+■ キャッチコピー（20文字以内）
+「＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿」</pre>
+
+            <h2 id="sec8">8. 募集文を作ろう（10分）</h2>
+            <p>
+                7章で埋めた内容を、こちらのテンプレートにコピペするだけで募集文が完成します。
+            </p>
+
+            <button class="copy-btn" onclick="copyToClipboard('template2')">📋 テキストをコピーする</button>
+            <pre class="template-box" id="template2">
+【① 痛み】
+＿＿＿という状況、ありませんか？
+
+【② 放置コスト】
+このまま＿＿＿経つと、＿＿＿になってしまいます。
+
+【③ 約束】
+このプログラムでは、＿＿＿で＿＿＿を実現します。
+
+【④ 証拠】
+実際に、＿＿＿という成果が出ています。
+
+【⑤ 商品内容】
+・＿＿＿
+・＿＿＿
+・＿＿＿
+
+【⑥ 価格根拠】
+価格は＿＿＿円です。
+なぜこの価格か（例：回避損失／時間短縮／他社比較／皮膚科通いより安い）
+：＿＿＿＿＿＿＿＿＿＿
+
+【⑦ リスク反転】
+もし＿＿＿の場合は、＿＿＿します。</pre>
+
+            <div class="point-box">
+                <span class="point-title">MESSAGE</span>
+                <p>
+                    以前売れていたなら、刺さるポイントは必ずあります。<br>
+                    焦らず、ズレている部分を見つけて、直していきましょう。<br>
+                    この資料が、あなたの商品を「また売れる状態」に戻すきっかけになれば嬉しいです。
+                </p>
+            </div>
+
+        </article>
+
+        <!-- Footer Navigation -->
+        <footer class="article-footer">
+            <p style="color:#666; margin-bottom:20px; font-size:0.9rem;">次の特典をチェックする</p>
+            <!-- 修正：ブラウザの戻る機能を使用 -->
+            <a onclick="history.back()" class="next-btn">BACK TO LIST</a>
+        </footer>
+
+    </div>
+
+    <script>
+        function copyToClipboard(elementId) {
+            const copyText = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(copyText).then(() => {
+                alert('コピーしました！');
+            }).catch(err => {
+                console.error('コピーに失敗しました', err);
+            });
+        }
+    </script>
+
+</body>
+</html>
