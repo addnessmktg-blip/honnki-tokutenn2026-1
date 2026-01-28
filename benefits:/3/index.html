@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>顧客が感じる心理的障害を突破する方法：3つの壁を越えて売上を伸ばす | Premium Bonus</title>
+  <title>心理的障害を突破する：3つの壁を越えて売上を伸ばす | Premium Bonus</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,7 +53,7 @@
     a{color:inherit;text-decoration:none;transition:.25s}
     .container{max-width:840px;margin:0 auto;padding:0 20px 80px}
 
-    /* Nav */
+    /* --- Navigation --- */
     .nav-bar{padding:30px 0;margin-bottom:20px}
     .back-link{
       display:inline-flex;align-items:center;gap:8px;
@@ -61,7 +61,7 @@
     }
     .back-link:hover{color:var(--gold);transform:translateX(-5px)}
 
-    /* Header */
+    /* --- Header --- */
     .article-header{
       text-align:center;
       margin-bottom:60px;
@@ -221,36 +221,47 @@
     .weapon .w-title i{color:var(--gold)}
     .weapon p{margin:0;color:var(--sub);font-size:.95rem;line-height:1.8;text-align:left}
 
-    /* Footer */
-    .footer{
-      margin-top:80px;
-      padding-top:40px;
-      border-top:1px solid #333;
-      text-align:center;
+    /* --- Footer (Centered with Flexbox) --- */
+    .article-footer {
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid #333;
+      display: flex; /* Flexboxを有効化 */
+      flex-direction: column; /* 縦並びに設定 */
+      align-items: center; /* 横方向の中央揃え */
+      text-align: center;
     }
-    .btn{
-      display:inline-block;
-      padding:1.2rem 4rem;
-      background:transparent;
-      color:var(--gold);
-      border:1px solid var(--goldBorder);
-      font-family:'Cinzel', sans-serif;
-      font-weight:700;
-      letter-spacing:.12em;
-      position:relative;
-      overflow:hidden;
-      cursor:pointer;
+    
+    .footer-text {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: .9rem;
     }
-    .btn::before{
-      content:'';
-      position:absolute;inset:0;
-      background:var(--goldGrad);
-      z-index:-1;
-      transform:translateX(-100%);
-      transition:transform .28s ease;
+
+    .btn {
+      display: inline-block;
+      padding: 1.2rem 4rem;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--goldBorder);
+      font-family: 'Cinzel', sans-serif;
+      font-weight: 700;
+      letter-spacing: .12em;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
     }
-    .btn:hover{color:#000}
-    .btn:hover::before{transform:translateX(0)}
+    .btn::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--goldGrad);
+      z-index: -1;
+      transform: translateX(-100%);
+      transition: transform .28s ease;
+    }
+    .btn:hover { color: #000; }
+    .btn:hover::before { transform: translateX(0); }
 
     @media (max-width:768px){
       .title{font-size:1.6rem}
@@ -267,21 +278,19 @@
 <body>
   <div class="container">
 
-    <!-- ✅ 上：必ずトップへ戻る（404防止） -->
+    <!-- Navigation -->
     <nav class="nav-bar">
-      <a href="https://addnessmktg-blip.github.io/honnki-tokutenn2026-1/" class="back-link" aria-label="特典一覧へ戻る">
+      <a href="../../index.html" class="back-link" aria-label="特典一覧へ戻る">
         <i class="fa-solid fa-arrow-left"></i> 特典一覧に戻る
       </a>
     </nav>
 
     <header class="article-header">
       <span class="tag-pill">SPECIAL BONUS 03</span>
-
       <h1 class="title">
         顧客が感じる心理的障害を突破する方法：<br>
         <span class="gold">3つの壁を越えて売上を伸ばす</span>
       </h1>
-
       <p class="lead">
         CVRが伸びない原因は、テクニック不足ではなく<strong>心理の壁</strong>であることが多いです。<br>
         ここでは「3つの壁」と、それを越えるための「7つの武器」を整理します。
@@ -289,8 +298,8 @@
 
       <div class="hero">
         <img
-          src="https://placehold.jp/1200x630.png?text=Key+Visual+%28Replace+Image+URL%29"
-          alt="3つの壁を越えて売上を伸ばす：イメージ"
+          src="https://placehold.jp/1200x630.png?text=Breaking+the+Walls"
+          alt="心理制障壁の突破：イメージ"
           class="img"
           loading="lazy"
         />
@@ -342,94 +351,75 @@
       <p>CVRを向上させるために越えるべき、もっとも重要な3つのステップです。</p>
 
       <h3>3.1 見ない壁（注意を引けない）</h3>
-      <p>膨大な情報の中で、興味を引くものにしか反応しません。</p>
+      <p>膨大な情報の中で、人は興味を引くものにしか反応しません。最初の3秒で「自分事」だと思わせる必要があります。</p>
 
       <h3>3.2 納得しない壁（信じてもらえない）</h3>
-      <p>自己防衛本能から、簡単には信じません。根拠が必要です。</p>
+      <p>自己防衛本能から、人は簡単には信じません。「なぜこれが良いのか」「なぜあなたから買うのか」という根拠が必要です。</p>
 
       <h3>3.3 行動しない壁（行動に移さない）</h3>
-      <p>納得していても、強い動機（緊急性など）がなければ動きません。</p>
+      <p>納得していても、強い動機（緊急性やメリット）がなければ「後でいいや」となってしまいます。</p>
 
       <img
-        src="https://placehold.jp/1200x600.png?text=3+Walls+Diagram+%28Replace+Image+URL%29"
+        src="https://placehold.jp/1200x600.png?text=Three+Walls+Diagram"
         alt="3つの心理的障壁（見ない／納得しない／行動しない）"
         class="img"
         loading="lazy"
       />
       <p class="cap">（図解：3つの心理的障壁）</p>
-      <p class="note">※ここに図解画像URLを貼り付けてください</p>
 
       <h2 id="sec4">4. 壁を越えるために使える7つの武器</h2>
       <p>どんなビジネスでも使える、人の意思決定を促す「7つの武器」を紹介します。</p>
 
-      <img
-        src="https://placehold.jp/1200x600.png?text=7+Weapons+Map+%28Replace+Image+URL%29"
-        alt="7つの武器 一覧マップ"
-        class="img"
-        loading="lazy"
-      />
-      <p class="cap">（図解：7つの武器 一覧マップ）</p>
-      <p class="note">※ここに図解画像URLを貼り付けてください</p>
-
       <div class="weapon-grid" aria-label="7つの武器">
         <div class="weapon">
           <div class="w-title"><i class="fa-solid fa-hourglass-half"></i> 4.1 希少性</div>
-          <p>人は「失うかもしれない」と感じた瞬間に動きます。</p>
+          <p>「今だけ」「ここだけ」という限定性が、決断を後押しします。</p>
         </div>
         <div class="weapon">
           <div class="w-title"><i class="fa-solid fa-users"></i> 4.2 社会的証明</div>
-          <p>「みんなが選んでいる」という安心感が必要です。</p>
+          <p>「多くの人が選んでいる」という事実は、最大の安心感を生みます。</p>
         </div>
         <div class="weapon">
           <div class="w-title"><i class="fa-solid fa-crown"></i> 4.3 権威</div>
-          <p>「詳しそうな人」の言葉は判断をショートカットさせます。</p>
+          <p>専門家や実績のある人の言葉は、不信感の壁を一気に壊します。</p>
         </div>
         <div class="weapon">
           <div class="w-title"><i class="fa-solid fa-heart"></i> 4.4 好意</div>
-          <p>「好きな人」「自分と似ている人」の話は素直に受け取ります。</p>
+          <p>共感できる相手や好きな人からの提案は、素直に受け入れられます。</p>
         </div>
         <div class="weapon">
           <div class="w-title"><i class="fa-solid fa-link"></i> 4.5 一貫性</div>
-          <p>小さなYesを積み重ね、行動を連鎖させます。</p>
+          <p>小さな「Yes」を積み重ねることで、大きな決断へスムーズに導きます。</p>
         </div>
         <div class="weapon">
           <div class="w-title"><i class="fa-solid fa-gift"></i> 4.6 返報性</div>
-          <p>先に価値を渡すことで、お返しとしての行動を促します。</p>
+          <p>先に価値を提供することで、信頼関係の土台を築きます。</p>
         </div>
         <div class="weapon" style="grid-column: 1 / -1;">
           <div class="w-title"><i class="fa-solid fa-route"></i> 4.7 事前の準備</div>
-          <p>行動を「決断」ではなく「自然な流れ」に変えます。</p>
+          <p>顧客が自然に「欲しい」と思うようなストーリーをあらかじめ用意します。</p>
         </div>
       </div>
 
       <h2 id="summary">5. まとめ</h2>
       <p>
-        3つの壁（見ない／納得しない／行動しない）を越えることができれば、CVRは必ず改善されます。
-        あなたも、この7つの武器を手に、一歩踏み出しましょう。
+        3つの壁を越えることができれば、CVRは必ず改善されます。
+        まずはあなたの導線のどこに「壁」があるかを見極めることから始めましょう。
       </p>
-
-      <img
-        src="https://placehold.jp/1200x600.png?text=Success+Image+%28Replace+Image+URL%29"
-        alt="壁を突破した後の成功イメージ"
-        class="img"
-        loading="lazy"
-      />
-      <p class="cap">（画像：壁を突破した後の成功イメージ）</p>
-      <p class="note">※ここに画像URLを貼り付けてください</p>
 
       <div class="box">
         <span class="label">ACTION</span>
         <p>
           どれか1つだけでいいので、あなたのLPやセールス導線に当てはめてみてください。<br>
-          <strong>「どの壁で止まっているか」</strong>が分かるだけで、改善は一気に速くなります。
+          <strong>「どの壁で止まっているか」</strong>が分かるだけで、改善のスピードは一気に加速します。
         </p>
       </div>
     </article>
 
-    <!-- ✅ 下：必ずトップへ戻る（404防止） -->
-    <footer class="footer">
-      <p style="color:#666;margin-bottom:20px;font-size:.9rem;">特典一覧へ戻る</p>
-      <a href="https://addnessmktg-blip.github.io/honnki-tokutenn2026-1/" class="btn">BACK TO LIST</a>
+    <!-- Footer Navigation (Flexbox for centering) -->
+    <footer class="article-footer">
+      <p class="footer-text">特典一覧へ戻る</p>
+      <a href="../../index.html" class="btn">BACK TO LIST</a>
     </footer>
 
   </div>
