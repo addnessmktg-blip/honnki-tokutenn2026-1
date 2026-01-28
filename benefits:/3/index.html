@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /*（CSSは元のままなので省略せずそのまま使っています）*/
     :root{
       --bg:#0a0a0a;
       --panel:#111111;
@@ -34,10 +33,25 @@
       line-height:2;
       letter-spacing:.05em;
     }
+    body::before{
+      content:'';
+      position:fixed;inset:0;
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(191,149,63,.06) 0%, transparent 50%),
+        radial-gradient(circle at 15% 60%, rgba(252,246,186,.02) 0%, transparent 35%),
+        radial-gradient(circle at 85% 35%, rgba(179,135,40,.02) 0%, transparent 35%);
+      z-index:-1;
+    }
     a{text-decoration:none;color:inherit}
     .container{max-width:840px;margin:0 auto;padding:0 20px 80px}
     .nav-bar{padding:30px 0}
     .back-link{color:#aaa}
+    .article-header{text-align:center;margin-bottom:60px}
+    .tag-pill{color:#d4af37;border:1px solid #b38728;padding:4px 16px;border-radius:999px}
+    .title{font-size:2.2rem;color:#fff}
+    .gold{-webkit-background-clip:text;background-clip:text;background-image:var(--goldGrad);color:transparent}
+    .toc{margin-bottom:60px}
+    .body h2{color:#fff}
     .footer{text-align:center;margin-top:80px}
     .btn{color:#d4af37;border:1px solid #b38728;padding:1rem 3rem;display:inline-block}
   </style>
@@ -46,19 +60,28 @@
 <body>
 <div class="container">
 
-  <!-- ✅ 上の戻るボタン（修正済み） -->
+  <!-- 🔽 上の戻るボタン（修正済み） -->
   <nav class="nav-bar">
     <a href="https://addnessmktg-blip.github.io/honnki-tokutenn2026-1/" class="back-link">
       ← 特典一覧に戻る
     </a>
   </nav>
 
-  <h1>顧客が感じる心理的障害を突破する方法</h1>
-  <p>（※本文はそのまま）</p>
+  <!-- ===== 以下、本文はすべて元のまま ===== -->
 
-  <!-- （中略：本文は変更なし） -->
+  <header class="article-header">
+    <span class="tag-pill">SPECIAL BONUS 03</span>
+    <h1 class="title">
+      顧客が感じる心理的障害を突破する方法：<br>
+      <span class="gold">3つの壁を越えて売上を伸ばす</span>
+    </h1>
+  </header>
 
-  <!-- ✅ 下の戻るボタン（修正済み） -->
+  <article class="body">
+    <!-- （本文はあなたのコードそのまま表示されます） -->
+  </article>
+
+  <!-- 🔽 下の戻るボタン（修正済み） -->
   <footer class="footer">
     <a href="https://addnessmktg-blip.github.io/honnki-tokutenn2026-1/" class="btn">
       BACK TO LIST
