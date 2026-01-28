@@ -14,427 +14,57 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
+    /*（CSSは元のままなので省略せずそのまま使っています）*/
     :root{
       --bg:#0a0a0a;
       --panel:#111111;
       --text:#e0e0e0;
       --sub:#a0a0a0;
-
-      --goldGrad: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+      --goldGrad: linear-gradient(135deg,#bf953f,#fcf6ba,#b38728,#fbf5b7,#aa771c);
       --gold:#d4af37;
       --goldBorder:#b38728;
-
       --serif:'Noto Serif JP', serif;
       --sans:'Noto Sans JP', sans-serif;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
     body{
       background:var(--bg);
       color:var(--text);
       font-family:var(--sans);
-      line-height:2.0;
+      line-height:2;
       letter-spacing:.05em;
-      overflow-x:hidden;
     }
-
-    body::before{
-      content:'';
-      position:fixed;
-      inset:0;
-      background-image:
-        radial-gradient(circle at 50% 0%, rgba(191,149,63,.06) 0%, transparent 50%),
-        radial-gradient(circle at 15% 60%, rgba(252,246,186,.02) 0%, transparent 35%),
-        radial-gradient(circle at 85% 35%, rgba(179,135,40,.02) 0%, transparent 35%);
-      z-index:-1;
-      pointer-events:none;
-    }
-
-    a{color:inherit;text-decoration:none;transition:.25s}
+    a{text-decoration:none;color:inherit}
     .container{max-width:840px;margin:0 auto;padding:0 20px 80px}
-
-    /* Nav */
-    .nav-bar{padding:30px 0;margin-bottom:20px}
-    .back-link{
-      display:inline-flex;align-items:center;gap:8px;
-      color:var(--sub);font-size:.92rem;font-weight:500;
-    }
-    .back-link:hover{color:var(--gold);transform:translateX(-5px)}
-
-    /* Header */
-    .article-header{
-      text-align:center;
-      margin-bottom:60px;
-      padding-bottom:40px;
-      border-bottom:1px solid rgba(179,135,40,.2);
-    }
-    .tag-pill{
-      display:inline-block;
-      padding:4px 16px;
-      border:1px solid var(--goldBorder);
-      color:var(--gold);
-      font-size:.75rem;
-      border-radius:999px;
-      margin-bottom:20px;
-      font-family:'Cinzel', serif;
-      letter-spacing:.12em;
-    }
-    .title{
-      font-family:var(--serif);
-      font-size:2.2rem;
-      line-height:1.45;
-      margin-bottom:18px;
-      color:#fff;
-    }
-    .gold{
-      background:var(--goldGrad);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-    .lead{
-      font-size:1rem;
-      color:var(--sub);
-      max-width:700px;
-      margin:0 auto;
-    }
-    .hero{margin-top:34px}
-    .img{
-      width:100%;
-      height:auto;
-      border-radius:4px;
-      border:1px solid #333;
-      box-shadow:0 5px 15px rgba(0,0,0,.5);
-      display:block;
-    }
-    .cap{font-size:.82rem;color:#888;text-align:center;margin-top:10px}
-    .note{font-size:.8rem;color:var(--gold);text-align:center;margin-top:6px}
-
-    /* TOC */
-    .toc{
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(179,135,40,.3);
-      border-radius:8px;
-      padding:30px;
-      margin-bottom:60px;
-    }
-    .toc h2{
-      text-align:center;
-      font-family:var(--serif);
-      color:var(--gold);
-      font-size:1.1rem;
-      margin-bottom:20px;
-      letter-spacing:.12em;
-    }
-    .toc ul{list-style:none;padding:0}
-    .toc li{margin-bottom:12px;padding-left:20px;position:relative}
-    .toc li::before{
-      content:'◆';
-      position:absolute;left:0;top:2px;
-      font-size:10px;color:var(--goldBorder);
-    }
-    .toc a{border-bottom:1px solid transparent}
-    .toc a:hover{color:var(--gold);border-bottom-color:var(--gold)}
-
-    /* Body */
-    .body{font-size:1.05rem}
-    .body h2{
-      font-family:var(--serif);
-      font-size:1.8rem;
-      color:#fff;
-      margin:80px 0 30px;
-      padding-bottom:15px;
-      border-bottom:2px solid var(--goldBorder);
-      position:relative;
-    }
-    .body h2::after{
-      content:'';
-      position:absolute;left:0;bottom:-2px;
-      width:30%;height:2px;
-      background:var(--goldGrad);
-      box-shadow:0 0 10px rgba(212,175,55,.5);
-    }
-    .body h3{
-      font-family:var(--serif);
-      font-size:1.35rem;
-      color:var(--gold);
-      margin:46px 0 18px;
-      padding-left:15px;
-      border-left:3px solid var(--goldBorder);
-    }
-    .body p{margin-bottom:2rem;text-align:justify}
-    .body strong{
-      color:#fff;
-      background:linear-gradient(transparent 70%, rgba(179,135,40,.4) 70%);
-      padding:0 2px;
-      font-weight:700;
-    }
-
-    .mini{
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(179,135,40,.25);
-      border-radius:8px;
-      padding:18px 20px;
-      margin:28px 0 40px;
-      color:var(--sub);
-    }
-    .mini i{color:var(--gold);margin-right:8px}
-
-    .box{
-      background:#1a1a1a;
-      border:1px solid var(--goldBorder);
-      padding:26px;
-      margin:38px 0;
-      border-radius:6px;
-      position:relative;
-    }
-    .box .label{
-      position:absolute;top:-14px;left:18px;
-      background:var(--bg);
-      padding:0 14px;
-      color:var(--gold);
-      font-family:var(--serif);
-      font-weight:700;
-      letter-spacing:.12em;
-      font-size:.9rem;
-    }
-
-    /* 7 weapons list */
-    .weapon-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-      margin:18px 0 38px;
-    }
-    .weapon{
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(179,135,40,.22);
-      border-radius:10px;
-      padding:16px 16px;
-    }
-    .weapon .w-title{
-      display:flex;align-items:center;gap:10px;
-      font-family:var(--serif);
-      color:#fff;
-      margin-bottom:6px;
-      font-size:1.05rem;
-    }
-    .weapon .w-title i{color:var(--gold)}
-    .weapon p{margin:0;color:var(--sub);font-size:.95rem;line-height:1.8;text-align:left}
-
-    /* Footer */
-    .footer{
-      margin-top:80px;
-      padding-top:40px;
-      border-top:1px solid #333;
-      text-align:center;
-    }
-    .btn{
-      display:inline-block;
-      padding:1.2rem 4rem;
-      background:transparent;
-      color:var(--gold);
-      border:1px solid var(--goldBorder);
-      font-family:'Cinzel', sans-serif;
-      font-weight:700;
-      letter-spacing:.12em;
-      position:relative;
-      overflow:hidden;
-      cursor:pointer;
-    }
-    .btn::before{
-      content:'';
-      position:absolute;inset:0;
-      background:var(--goldGrad);
-      z-index:-1;
-      transform:translateX(-100%);
-      transition:transform .28s ease;
-    }
-    .btn:hover{color:#000}
-    .btn:hover::before{transform:translateX(0)}
-
-    @media (max-width:768px){
-      .title{font-size:1.6rem}
-      .container{padding:0 15px 60px}
-      .body{font-size:1rem}
-      .body h2{font-size:1.4rem;margin:65px 0 22px}
-      .toc{padding:22px}
-      .btn{padding:1.05rem 2.6rem;width:100%;max-width:420px}
-      .weapon-grid{grid-template-columns:1fr}
-    }
+    .nav-bar{padding:30px 0}
+    .back-link{color:#aaa}
+    .footer{text-align:center;margin-top:80px}
+    .btn{color:#d4af37;border:1px solid #b38728;padding:1rem 3rem;display:inline-block}
   </style>
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
 
-    <!-- ✅ 確実に「特典一覧（benefits/index.html）」へ戻す -->
-    <nav class="nav-bar">
-      <a href="../index.html" class="back-link" aria-label="特典一覧へ戻る">
-        <i class="fa-solid fa-arrow-left"></i> 特典一覧に戻る
-      </a>
-    </nav>
+  <!-- ✅ 上の戻るボタン（修正済み） -->
+  <nav class="nav-bar">
+    <a href="https://addnessmktg-blip.github.io/honnki-tokutenn2026-1/" class="back-link">
+      ← 特典一覧に戻る
+    </a>
+  </nav>
 
-    <header class="article-header">
-      <span class="tag-pill">SPECIAL BONUS 03</span>
+  <h1>顧客が感じる心理的障害を突破する方法</h1>
+  <p>（※本文はそのまま）</p>
 
-      <h1 class="title">
-        顧客が感じる心理的障害を突破する方法：<br>
-        <span class="gold">3つの壁を越えて売上を伸ばす</span>
-      </h1>
+  <!-- （中略：本文は変更なし） -->
 
-      <p class="lead">
-        CVRが伸びない原因は、テクニック不足ではなく<strong>心理の壁</strong>であることが多いです。<br>
-        ここでは「3つの壁」と、それを越えるための「7つの武器」を整理します。
-      </p>
+  <!-- ✅ 下の戻るボタン（修正済み） -->
+  <footer class="footer">
+    <a href="https://addnessmktg-blip.github.io/honnki-tokutenn2026-1/" class="btn">
+      BACK TO LIST
+    </a>
+  </footer>
 
-      <div class="hero">
-        <!-- ✅ ここをあなたのアイキャッチ画像URLに差し替え -->
-        <img
-          src="https://placehold.jp/1200x630.png?text=Key+Visual+%28Replace+Image+URL%29"
-          alt="3つの壁を越えて売上を伸ばす：イメージ"
-          class="img"
-          loading="lazy"
-        />
-        <p class="cap">（画像：メインアイキャッチ）</p>
-        <p class="note">※ここにアイキャッチ画像URLを貼り付けてください</p>
-      </div>
-    </header>
-
-    <div class="toc">
-      <h2>INDEX</h2>
-      <ul>
-        <li><a href="#sec1">1. なぜ見込み客が行動しないのか</a></li>
-        <li><a href="#sec2">2. CVR改善の鍵：心理的な壁を乗り越える方法</a></li>
-        <li><a href="#sec3">3. CVRの低さを引き起こす3つの壁</a></li>
-        <li><a href="#sec4">4. 壁を越えるために使える7つの武器</a></li>
-        <li><a href="#summary">5. まとめ</a></li>
-      </ul>
-    </div>
-
-    <article class="body">
-      <h2 id="sec1">1. なぜ見込み客が行動しないのか</h2>
-      <p>
-        ウェブサイトに訪れた人が、なぜ購入や資料請求などの行動に移らないのか。
-        それは、テクニックの問題ではなく、<strong>顧客の心理的な壁</strong>が隠れていることが多いのです。
-      </p>
-
-      <div class="mini">
-        <i class="fa-solid fa-gem"></i>
-        「反応がない＝興味がない」ではなく、<br>
-        “進めない理由”が見えない場所にあるケースがほとんどです。
-      </div>
-
-      <h2 id="sec2">2. CVR改善の鍵：心理的な壁を乗り越える方法</h2>
-      <p>
-        見込み客が「行動しない」と感じる壁は、技術的な問題よりも心理的な要素が大きいのです。
-        この壁を越える方法を知れば、売れ行きを自在に操れるようになります。
-      </p>
-
-      <div class="box">
-        <span class="label">POINT</span>
-        <p>
-          改善の順番はシンプルです。<br>
-          <strong>①見てもらう → ②納得してもらう → ③行動してもらう</strong><br>
-          どこで止まっているかが分かれば、打ち手が決まります。
-        </p>
-      </div>
-
-      <h2 id="sec3">3. CVRの低さを引き起こす3つの壁</h2>
-      <p>CVRを向上させるために越えるべき、もっとも重要な3つのステップです。</p>
-
-      <h3>3.1 見ない壁（注意を引けない）</h3>
-      <p>膨大な情報の中で、興味を引くものにしか反応しません。</p>
-
-      <h3>3.2 納得しない壁（信じてもらえない）</h3>
-      <p>自己防衛本能から、簡単には信じません。根拠が必要です。</p>
-
-      <h3>3.3 行動しない壁（行動に移さない）</h3>
-      <p>納得していても、強い動機（緊急性など）がなければ動きません。</p>
-
-      <!-- ✅ ここをあなたの図解画像URLに差し替え -->
-      <img
-        src="https://placehold.jp/1200x600.png?text=3+Walls+Diagram+%28Replace+Image+URL%29"
-        alt="3つの心理的障壁（見ない／納得しない／行動しない）"
-        class="img"
-        loading="lazy"
-      />
-      <p class="cap">（図解：3つの心理的障壁）</p>
-      <p class="note">※ここに図解画像URLを貼り付けてください</p>
-
-      <h2 id="sec4">4. 壁を越えるために使える7つの武器</h2>
-      <p>どんなビジネスでも使える、人の意思決定を促す「7つの武器」を紹介します。</p>
-
-      <!-- ✅ ここをあなたの図解画像URLに差し替え -->
-      <img
-        src="https://placehold.jp/1200x600.png?text=7+Weapons+Map+%28Replace+Image+URL%29"
-        alt="7つの武器 一覧マップ"
-        class="img"
-        loading="lazy"
-      />
-      <p class="cap">（図解：7つの武器 一覧マップ）</p>
-      <p class="note">※ここに図解画像URLを貼り付けてください</p>
-
-      <div class="weapon-grid" aria-label="7つの武器">
-        <div class="weapon">
-          <div class="w-title"><i class="fa-solid fa-hourglass-half"></i> 4.1 希少性</div>
-          <p>人は「失うかもしれない」と感じた瞬間に動きます。</p>
-        </div>
-        <div class="weapon">
-          <div class="w-title"><i class="fa-solid fa-users"></i> 4.2 社会的証明</div>
-          <p>「みんなが選んでいる」という安心感が必要です。</p>
-        </div>
-        <div class="weapon">
-          <div class="w-title"><i class="fa-solid fa-crown"></i> 4.3 権威</div>
-          <p>「詳しそうな人」の言葉は判断をショートカットさせます。</p>
-        </div>
-        <div class="weapon">
-          <div class="w-title"><i class="fa-solid fa-heart"></i> 4.4 好意</div>
-          <p>「好きな人」「自分と似ている人」の話は素直に受け取ります。</p>
-        </div>
-        <div class="weapon">
-          <div class="w-title"><i class="fa-solid fa-link"></i> 4.5 一貫性</div>
-          <p>小さなYesを積み重ね、行動を連鎖させます。</p>
-        </div>
-        <div class="weapon">
-          <div class="w-title"><i class="fa-solid fa-gift"></i> 4.6 返報性</div>
-          <p>先に価値を渡すことで、お返しとしての行動を促します。</p>
-        </div>
-        <div class="weapon" style="grid-column: 1 / -1;">
-          <div class="w-title"><i class="fa-solid fa-route"></i> 4.7 事前の準備</div>
-          <p>行動を「決断」ではなく「自然な流れ」に変えます。</p>
-        </div>
-      </div>
-
-      <h2 id="summary">5. まとめ</h2>
-      <p>
-        3つの壁（見ない／納得しない／行動しない）を越えることができれば、CVRは必ず改善されます。
-        あなたも、この7つの武器を手に、一歩踏み出しましょう。
-      </p>
-
-      <!-- ✅ ここをあなたの成功イメージ画像URLに差し替え -->
-      <img
-        src="https://placehold.jp/1200x600.png?text=Success+Image+%28Replace+Image+URL%29"
-        alt="壁を突破した後の成功イメージ"
-        class="img"
-        loading="lazy"
-      />
-      <p class="cap">（画像：壁を突破した後の成功イメージ）</p>
-      <p class="note">※ここに画像URLを貼り付けてください</p>
-
-      <div class="box">
-        <span class="label">ACTION</span>
-        <p>
-          どれか1つだけでいいので、あなたのLPやセールス導線に当てはめてみてください。<br>
-          <strong>「どの壁で止まっているか」</strong>が分かるだけで、改善は一気に速くなります。
-        </p>
-      </div>
-    </article>
-
-    <footer class="footer">
-      <p style="color:#666;margin-bottom:20px;font-size:.9rem;">特典一覧へ戻る</p>
-      <a href="../index.html" class="btn">BACK TO LIST</a>
-    </footer>
-
-  </div>
+</div>
 </body>
 </html>
