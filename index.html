@@ -1,440 +1,386 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Special Bonus</title>
-    <!-- Google Fonts: 高級感のある明朝体と視認性の高いゴシック体 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* --- Base Variables --- */
-        :root {
-            --bg-color: #0a0a0a;
-            --card-bg: #141414;
-            --text-main: #f0f0f0;
-            --text-sub: #a0a0a0;
-            /* Luxurious Gold Gradient */
-            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            --gold-text: #d4af37;
-            --gold-border: #b38728;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Special Bonus</title>
 
-        /* --- Reset & Base Styles --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Noto Sans JP', sans-serif;
-            overflow-x: hidden;
-            min-height: 100vh;
-            position: relative;
-        }
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        /* 背景の装飾（幾何学模様） */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(191, 149, 63, 0.03) 0%, transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(252, 246, 186, 0.03) 0%, transparent 25%);
-            z-index: -1;
-            pointer-events: none;
-        }
+  <style>
+    :root {
+      --bg-color: #0a0a0a;
+      --card-bg: #141414;
+      --text-main: #f0f0f0;
+      --text-sub: #a0a0a0;
+      --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+      --gold-text: #d4af37;
+      --gold-border: #b38728;
+    }
 
-        /* --- Typography --- */
-        h1, h2, h3 {
-            font-family: 'Noto Serif JP', serif;
-            letter-spacing: 0.05em;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .gold-text {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: var(--gold-text); /* Fallback */
-            font-weight: 700;
-        }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Noto Sans JP', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
 
-        /* --- Layout --- */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
-        }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 15% 50%, rgba(191, 149, 63, 0.03) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(252, 246, 186, 0.03) 0%, transparent 25%);
+      z-index: -1;
+      pointer-events: none;
+    }
 
-        .header {
-            text-align: center;
-            margin-bottom: 5rem;
-            position: relative;
-        }
+    h1, h2, h3 {
+      font-family: 'Noto Serif JP', serif;
+      letter-spacing: 0.05em;
+    }
 
-        .header-logo {
-            font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            color: var(--gold-text);
-            margin-bottom: 1rem;
-            display: inline-block;
-            border-bottom: 1px solid var(--gold-border);
-            padding-bottom: 0.5rem;
-        }
+    .gold-text {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: var(--gold-text);
+      font-weight: 700;
+    }
 
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.4;
-        }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
 
-        .header p {
-            color: var(--text-sub);
-            font-size: 0.95rem;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
+    .header {
+      text-align: center;
+      margin-bottom: 5rem;
+      position: relative;
+    }
 
-        /* --- Cards Grid --- */
-        .cards-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
+    .header-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      color: var(--gold-text);
+      margin-bottom: 1rem;
+      display: inline-block;
+      border-bottom: 1px solid var(--gold-border);
+      padding-bottom: 0.5rem;
+    }
 
-        /* --- Premium Card Style --- */
-        .premium-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(179, 135, 40, 0.3);
-            border-radius: 4px;
-            padding: 2.5rem 2rem;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            /* 初期状態：少し下に配置して透明（JSでアニメーション） */
-            opacity: 0;
-            transform: translateY(30px);
-        }
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
 
-        /* ホバー時のエフェクト */
-        .premium-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(179, 135, 40, 0.8);
-            box-shadow: 0 10px 40px -10px rgba(179, 135, 40, 0.2);
-        }
+    .header p {
+      color: var(--text-sub);
+      font-size: 0.95rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
 
-        /* カード内部の装飾線 */
-        .premium-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--gold-gradient);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
+    .cards-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
 
-        .premium-card:hover::after {
-            transform: scaleX(1);
-        }
+    .premium-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(179, 135, 40, 0.3);
+      border-radius: 4px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(30px);
+    }
 
-        /* カード番号 */
-        .card-number {
-            font-family: 'Cinzel', serif;
-            font-size: 3.5rem;
-            color: rgba(255, 255, 255, 0.03);
-            position: absolute;
-            top: 0;
-            right: 1rem;
-            font-weight: 700;
-            line-height: 1;
-            transition: color 0.3s;
-        }
+    .premium-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(179, 135, 40, 0.8);
+      box-shadow: 0 10px 40px -10px rgba(179, 135, 40, 0.2);
+    }
 
-        .premium-card:hover .card-number {
-            color: rgba(191, 149, 63, 0.1);
-        }
+    .premium-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--gold-gradient);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
 
-        /* カードコンテンツ */
-        .card-header {
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
+    .premium-card:hover::after {
+      transform: scaleX(1);
+    }
 
-        .card-tag {
-            font-size: 0.75rem;
-            color: var(--gold-text);
-            border: 1px solid var(--gold-border);
-            padding: 0.2rem 0.8rem;
-            border-radius: 50px;
-            display: inline-block;
-            margin-bottom: 1rem;
-            letter-spacing: 0.05em;
-        }
+    .card-number {
+      font-family: 'Cinzel', serif;
+      font-size: 3.5rem;
+      color: rgba(255, 255, 255, 0.03);
+      position: absolute;
+      top: 0;
+      right: 1rem;
+      font-weight: 700;
+      line-height: 1;
+      transition: color 0.3s;
+    }
 
-        .card-title {
-            font-size: 1.4rem;
-            color: #fff;
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
+    .premium-card:hover .card-number {
+      color: rgba(191, 149, 63, 0.1);
+    }
 
-        .card-problem {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    .card-header {
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
 
-        .problem-icon {
-            color: #666;
-            margin-top: 0.2rem;
-        }
+    .card-tag {
+      font-size: 0.75rem;
+      color: var(--gold-text);
+      border: 1px solid var(--gold-border);
+      padding: 0.2rem 0.8rem;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
 
-        .problem-text {
-            font-size: 0.9rem;
-            color: var(--text-sub);
-            font-style: italic;
-        }
+    .card-title {
+      font-size: 1.4rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
 
-        .card-solution {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-            margin-bottom: 2rem;
-            flex-grow: 1; /* ボタンを下揃えにするため */
-        }
+    .card-solution {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
 
-        .solution-icon {
-            color: var(--gold-text);
-            margin-top: 0.2rem;
-            text-shadow: 0 0 10px rgba(191, 149, 63, 0.5);
-        }
+    .solution-icon {
+      color: var(--gold-text);
+      margin-top: 0.2rem;
+      text-shadow: 0 0 10px rgba(191, 149, 63, 0.5);
+    }
 
-        .solution-text {
-            font-size: 0.95rem;
-            color: var(--text-main);
-            font-weight: 500;
-            line-height: 1.6;
-        }
+    .solution-text {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      font-weight: 500;
+      line-height: 1.6;
+    }
 
-        /* ボタン */
-        .card-btn {
-            display: block;
-            width: 100%;
-            padding: 1rem;
-            text-align: center;
-            background: transparent;
-            color: var(--gold-text);
-            border: 1px solid var(--gold-border);
-            text-decoration: none;
-            font-family: 'Cinzel', sans-serif;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
+    .card-btn {
+      display: block;
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+      background: transparent;
+      color: var(--gold-text);
+      border: 1px solid var(--gold-border);
+      text-decoration: none;
+      font-family: 'Cinzel', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
 
-        .card-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gold-gradient);
-            z-index: -1;
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
+    .card-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gold-gradient);
+      z-index: -1;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
 
-        .card-btn:hover {
-            color: #000;
-            border-color: transparent;
-        }
+    .card-btn:hover {
+      color: #000;
+      border-color: transparent;
+    }
 
-        .card-btn:hover::before {
-            transform: translateX(0);
-        }
+    .card-btn:hover::before {
+      transform: translateX(0);
+    }
 
-        /* --- Footer --- */
-        .footer {
-            text-align: center;
-            padding: 3rem 0;
-            color: #444;
-            font-size: 0.8rem;
-            margin-top: 3rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
+    .footer {
+      text-align: center;
+      padding: 3rem 0;
+      color: #444;
+      font-size: 0.8rem;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
 
-        /* --- Animation Class (JSで付与) --- */
-        .fade-in-up {
-            animation: fadeInUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-        }
+    .fade-in-up {
+      animation: fadeInUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    }
 
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        /* レスポンシブ調整 */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8rem;
-            }
-            .cards-wrapper {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    @media (max-width: 768px) {
+      .header h1 { font-size: 1.8rem; }
+      .cards-wrapper { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="container">
+    <header class="header">
+      <span class="header-logo">SPECIAL BONUSES</span>
+      <h1>
+        ビジネスを加速させる<br>
+        <span class="gold-text">5つの極秘特典</span>
+      </h1>
+      <p>
+        通常は公開していない特別なノウハウとツールを<br>
+        今回限りの特典としてご用意しました。
+      </p>
+    </header>
 
-    <div class="container">
-        <!-- Header Section -->
-        <header class="header">
-            <span class="header-logo">SPECIAL BONUSES</span>
-            <h1>
-                ビジネスを加速させる<br>
-                <span class="gold-text">5つの極秘特典</span>
-            </h1>
-            <p>
-                通常は公開していない特別なノウハウとツールを<br>
-                今回限りの特典としてご用意しました。
-            </p>
-        </header>
+    <div class="cards-wrapper">
 
-        <!-- Cards Section -->
-        <div class="cards-wrapper">
-
-            <!-- Bonus 01 -->
-            <article class="premium-card" style="animation-delay: 0.1s;">
-                <div class="card-number">01</div>
-                <div class="card-header">
-                    <span class="card-tag">BUSINESS MODEL</span>
-                    <h3 class="card-title">スケーラビリティ設計ロードマップ</h3>
-                </div>
-                
-                <div class="card-solution">
-                    <i class="fa-solid fa-key solution-icon"></i>
-                    <p class="solution-text">一度作れば継続的に収益を生む「ストック型ビジネス」の構築法を伝授。</p>
-                </div>
-                <a href="#" class="card-btn">VIEW DETAILS</a>
-            </article>
-
-            <!-- Bonus 02 -->
-            <article class="premium-card" style="animation-delay: 0.2s;">
-                <div class="card-number">02</div>
-                <div class="card-header">
-                    <span class="card-tag">MARKETING</span>
-                    <h3 class="card-title">自動集客ファネル設計図</h3>
-                </div>
-                
-                <div class="card-solution">
-                    <i class="fa-solid fa-key solution-icon"></i>
-                    <p class="solution-text">寝ている間もリストが集まり続ける「自動化の仕組み」を完全図解。</p>
-                </div>
-                <a href="#" class="card-btn">VIEW DETAILS</a>
-            </article>
-
-            <!-- Bonus 03 -->
-            <article class="premium-card" style="animation-delay: 0.3s;">
-                <div class="card-number">03</div>
-                <div class="card-header">
-                    <span class="card-tag">MINDSET</span>
-                    <h3 class="card-title">高単価クロージング術</h3>
-                </div>
-                
-                <div class="card-solution">
-                    <i class="fa-solid fa-key solution-icon"></i>
-                    <p class="solution-text">売り込まずに「あなたから買いたい」と言わせる魔法のトークスクリプト。</p>
-                </div>
-                <a href="#" class="card-btn">VIEW DETAILS</a>
-            </article>
-
-            <!-- Bonus 04 -->
-            <article class="premium-card" style="animation-delay: 0.4s;">
-                <div class="card-number">04</div>
-                <div class="card-header">
-                    <span class="card-tag">DOCUMENT</span>
-                    <h3 class="card-title">需要再点火<br>オファー設計シート</h3>
-                </div>
-                
-                <div class="card-solution">
-                    <i class="fa-solid fa-key solution-icon"></i>
-                    <p class="solution-text">市場のニーズを捉え直し、今すぐ「刺さる商品」へと生まれ変わらせる再設計ワーク。</p>
-                </div>
-                <a href="#" class="card-btn">DOWNLOAD PDF</a>
-            </article>
-
-            <!-- Bonus 05 -->
-            <article class="premium-card" style="animation-delay: 0.5s;">
-                <div class="card-number">05</div>
-                <div class="card-header">
-                    <span class="card-tag">WEB TOOL</span>
-                    <h3 class="card-title">起業オンライン100選 完全ガイド</h3>
-                </div>
-                
-                <div class="card-solution">
-                    <i class="fa-solid fa-key solution-icon"></i>
-                    <p class="solution-text">検索機能付き！100個の具体的な起業アイデアと0→1手順を網羅したWebツール。</p>
-                </div>
-                <a href="#" class="card-btn">OPEN TOOL</a>
-            </article>
-
+      <!-- Bonus 01 -->
+      <article class="premium-card" style="animation-delay: 0.1s;">
+        <div class="card-number">01</div>
+        <div class="card-header">
+          <span class="card-tag">BUSINESS MODEL</span>
+          <h3 class="card-title">スケーラビリティ設計ロードマップ</h3>
         </div>
+        <div class="card-solution">
+          <i class="fa-solid fa-key solution-icon"></i>
+          <p class="solution-text">一度作れば継続的に収益を生む「ストック型ビジネス」の構築法を伝授。</p>
+        </div>
+        <a href="./benefits/1/" class="card-btn">VIEW DETAILS</a>
+      </article>
 
-        <footer class="footer">
-            <p>&copy; 2026 Premium Business Program. All Rights Reserved.</p>
-        </footer>
+      <!-- Bonus 02 -->
+      <article class="premium-card" style="animation-delay: 0.2s;">
+        <div class="card-number">02</div>
+        <div class="card-header">
+          <span class="card-tag">MARKETING</span>
+          <h3 class="card-title">自動集客ファネル設計図</h3>
+        </div>
+        <div class="card-solution">
+          <i class="fa-solid fa-key solution-icon"></i>
+          <p class="solution-text">寝ている間もリストが集まり続ける「自動化の仕組み」を完全図解。</p>
+        </div>
+        <a href="./benefits/2/" class="card-btn">VIEW DETAILS</a>
+      </article>
+
+      <!-- Bonus 03 -->
+      <article class="premium-card" style="animation-delay: 0.3s;">
+        <div class="card-number">03</div>
+        <div class="card-header">
+          <span class="card-tag">MINDSET</span>
+          <h3 class="card-title">高単価クロージング術</h3>
+        </div>
+        <div class="card-solution">
+          <i class="fa-solid fa-key solution-icon"></i>
+          <p class="solution-text">売り込まずに「あなたから買いたい」と言わせる魔法のトークスクリプト。</p>
+        </div>
+        <a href="./benefits/3/" class="card-btn">VIEW DETAILS</a>
+      </article>
+
+      <!-- Bonus 04 -->
+      <article class="premium-card" style="animation-delay: 0.4s;">
+        <div class="card-number">04</div>
+        <div class="card-header">
+          <span class="card-tag">DOCUMENT</span>
+          <h3 class="card-title">需要再点火<br>オファー設計シート</h3>
+        </div>
+        <div class="card-solution">
+          <i class="fa-solid fa-key solution-icon"></i>
+          <p class="solution-text">市場のニーズを捉え直し、今すぐ「刺さる商品」へと生まれ変わらせる再設計ワーク。</p>
+        </div>
+        <a href="./benefits/4/" class="card-btn">VIEW DETAILS</a>
+      </article>
+
+      <!-- Bonus 05 (External / Netlify) -->
+      <article class="premium-card" style="animation-delay: 0.5s;">
+        <div class="card-number">05</div>
+        <div class="card-header">
+          <span class="card-tag">WEB TOOL</span>
+          <h3 class="card-title">起業オンライン100選 完全ガイド</h3>
+        </div>
+        <div class="card-solution">
+          <i class="fa-solid fa-key solution-icon"></i>
+          <p class="solution-text">検索機能付き！100個の具体的な起業アイデアと0→1手順を網羅したWebツール。</p>
+        </div>
+        <a
+          href="https://addness-kigyo-guide2026.netlify.app"
+          class="card-btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >OPEN TOOL</a>
+      </article>
+
     </div>
 
-    <script>
-        // スクロール時にカードをふわっと表示させるアニメーション
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.premium-card');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in-up');
-                        observer.unobserve(entry.target); // 一度表示したら監視を終了
-                    }
-                });
-            
-            }, {
-                threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px"
-            });
+    <footer class="footer">
+      <p>&copy; 2026 Premium Business Program. All Rights Reserved.</p>
+    </footer>
+  </div>
 
-            cards.forEach(card => {
-                observer.observe(card);
-            });
+  <script>
+    // スクロール時にカードをふわっと表示させるアニメーション
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.premium-card');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-up');
+            observer.unobserve(entry.target);
+          }
         });
-    </script>
+      }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      });
+
+      cards.forEach(card => observer.observe(card));
+    });
+  </script>
 </body>
 </html>
