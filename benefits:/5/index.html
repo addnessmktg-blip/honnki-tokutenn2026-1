@@ -3,192 +3,171 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>特典5｜起業オンライン100選 完全ガイド</title>
+  <title>起業オンライン100選 完全ガイドブック | Premium Bonus</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@600;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root{
       --bg:#0a0a0a;
-      --panel:#141414;
-      --text:#f0f0f0;
+      --panel:#111111;
+      --text:#e0e0e0;
       --sub:#a0a0a0;
+
+      --goldGrad: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
       --gold:#d4af37;
-      --gold-border:#b38728;
-      --gold-grad:linear-gradient(135deg,#bf953f,#fcf6ba,#b38728,#fbf5b7,#aa771c);
+      --goldBorder:#b38728;
+
+      --serif:'Noto Serif JP', serif;
+      --sans:'Noto Sans JP', sans-serif;
     }
+
     *{box-sizing:border-box;margin:0;padding:0}
     body{
       background:var(--bg);
       color:var(--text);
-      font-family:'Noto Sans JP',sans-serif;
-      min-height:100vh;
-      position:relative;
+      font-family:var(--sans);
+      line-height:2.0;
+      letter-spacing:.05em;
+      overflow-x:hidden;
     }
+
     body::before{
       content:'';
-      position:fixed;inset:0;
+      position:fixed;
+      inset:0;
       background-image:
-        radial-gradient(circle at 15% 50%, rgba(191,149,63,.03) 0%, transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(252,246,186,.03) 0%, transparent 25%);
+        radial-gradient(circle at 50% 0%, rgba(191,149,63,.06) 0%, transparent 50%),
+        radial-gradient(circle at 15% 60%, rgba(252,246,186,.02) 0%, transparent 35%);
       z-index:-1;
+      pointer-events:none;
     }
 
-    .container{
-      max-width:900px;
-      margin:0 auto;
-      padding:2.5rem 1.2rem 4rem;
+    a{color:inherit;text-decoration:none;transition:.25s}
+    .container{max-width:900px;margin:0 auto;padding:0 20px 80px}
+
+    /* --- Navigation --- */
+    .nav-bar{padding:30px 0;margin-bottom:20px; display: flex; justify-content: center;}
+    .back-link{
+      display:inline-flex;align-items:center;gap:8px;
+      color:var(--sub);font-size:.85rem;font-weight:500;
+      border: 1px solid rgba(179,135,40,0.3);
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-family: 'Cinzel', serif;
+    }
+    .back-link:hover{color:var(--gold); border-color: var(--gold); transform: translateY(-2px);}
+
+    /* --- Main Bridge Card --- */
+    .bridge-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(179, 135, 40, 0.4);
+      border-radius: 8px;
+      padding: 60px 40px;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .bonus-tag {
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .main-title {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      color: #fff;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+    .main-title span { display: block; }
+    .bridge-lead {
+      color: var(--sub);
+      font-size: 1rem;
+      margin-bottom: 20px;
     }
 
-    a{text-decoration:none;color:inherit}
-
-    .back{
-      display:inline-flex;
-      align-items:center;
-      gap:.6rem;
-      font-family:'Cinzel',serif;
-      font-size:.85rem;
-      letter-spacing:.08em;
-      color:var(--sub);
-      border:1px solid rgba(179,135,40,.4);
-      padding:.6rem 1rem;
-      border-radius:999px;
-      margin-bottom:2rem;
-      transition:.25s;
+    /* --- Feature Grid --- */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 40px 0;
     }
-    .back:hover{
-      background:var(--gold-grad);
-      color:#000;
-      border-color:transparent;
+    .feature-item {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 30px 20px;
+      border-radius: 4px;
+      text-align: left;
     }
-
-    .hero{
-      text-align:center;
-      background:var(--panel);
-      border:1px solid rgba(179,135,40,.35);
-      border-radius:6px;
-      padding:3rem 1.5rem;
-      margin-bottom:2.5rem;
-      position:relative;
+    .feature-icon {
+      color: var(--gold);
+      font-size: 1.2rem;
+      margin-bottom: 15px;
     }
-    .hero::before{
-      content:'';
-      position:absolute;left:0;top:0;right:0;height:3px;
-      background:var(--gold-grad);
+    .feature-title {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      font-family: var(--serif);
+    }
+    .feature-desc {
+      color: var(--sub);
+      font-size: 0.85rem;
+      line-height: 1.6;
     }
 
-    .badge{
-      font-family:'Cinzel',serif;
-      font-size:.85rem;
-      color:var(--gold);
-      border-bottom:1px solid var(--gold-border);
-      padding-bottom:.3rem;
-      display:inline-block;
-      margin-bottom:1.2rem;
-      letter-spacing:.12em;
+    /* --- Footer Action --- */
+    .footer-action {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .disclaimer {
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 20px;
     }
 
-    h1{
-      font-family:'Noto Serif JP',serif;
-      font-size:2rem;
-      line-height:1.5;
-      margin-bottom:1rem;
+    .btn {
+      display: inline-block;
+      padding: 1.2rem 4rem;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--goldBorder);
+      font-family: 'Cinzel', sans-serif;
+      font-weight: 700;
+      letter-spacing: .12em;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
     }
-    .gold{
-      background:var(--gold-grad);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
+    .btn::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--goldGrad);
+      z-index: -1;
+      transform: translateX(-100%);
+      transition: transform .28s ease;
     }
-    .lead{
-      color:var(--sub);
-      max-width:640px;
-      margin:0 auto;
-      line-height:1.9;
-      font-size:.95rem;
-    }
+    .btn:hover { color: #000; }
+    .btn:hover::before { transform: translateX(0); }
 
-    .points{
-      margin:2.5rem 0;
-      display:grid;
-      grid-template-columns:1fr;
-      gap:1.2rem;
-    }
-    @media(min-width:768px){
-      .points{grid-template-columns:repeat(3,1fr)}
-    }
-    .point{
-      background:#111;
-      border:1px solid rgba(255,255,255,.06);
-      border-radius:6px;
-      padding:1.4rem 1.2rem;
-    }
-    .point i{
-      color:var(--gold);
-      margin-bottom:.6rem;
-      display:block;
-    }
-    .point h3{
-      font-family:'Noto Serif JP',serif;
-      font-size:1.05rem;
-      margin-bottom:.4rem;
-    }
-    .point p{
-      color:var(--sub);
-      font-size:.9rem;
-      line-height:1.7;
-    }
-
-    .notice{
-      text-align:center;
-      color:#777;
-      font-size:.8rem;
-      margin-bottom:1.2rem;
-    }
-
-    .cta{
-      text-align:center;
-      margin-top:1.5rem;
-    }
-    .cta a{
-      display:inline-block;
-      width:min(420px,100%);
-      padding:1.2rem;
-      font-family:'Cinzel',serif;
-      letter-spacing:.12em;
-      font-weight:700;
-      color:var(--gold);
-      border:1px solid var(--gold-border);
-      position:relative;
-      overflow:hidden;
-      transition:.3s;
-    }
-    .cta a::before{
-      content:'';
-      position:absolute;inset:0;
-      background:var(--gold-grad);
-      transform:translateX(-100%);
-      transition:.3s;
-      z-index:-1;
-    }
-    .cta a:hover{
-      color:#000;
-      border-color:transparent;
-    }
-    .cta a:hover::before{
-      transform:translateX(0);
-    }
-
-    footer{
-      text-align:center;
-      margin-top:4rem;
-      color:#444;
-      font-size:.8rem;
-      border-top:1px solid rgba(255,255,255,.05);
-      padding-top:2rem;
+    @media (max-width:768px){
+      .main-title { font-size: 1.6rem; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .bridge-card { padding: 40px 20px; }
+      .btn { width: 100%; padding: 1.2rem 0; }
     }
   </style>
 </head>
@@ -196,53 +175,54 @@
 <body>
   <div class="container">
 
-    <a href="../../" class="back">← BACK TO LIST</a>
-
-    <section class="hero">
-      <span class="badge">SPECIAL BONUS 05</span>
-      <h1>
-        <span class="gold">起業オンライン100選</span><br>
-        完全ガイドブック
-      </h1>
-      <p class="lead">
-        「自分に何ができるか分からない」を終わらせる。<br>
-        検索・分類・実行手順まで揃えた、<strong>実践特化型Webツール</strong>です。
-      </p>
-    </section>
-
-    <section class="points">
-      <div class="point">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <h3>検索できる100アイデア</h3>
-        <p>顔出しNG・AI活用・副業向けなど、条件検索ですぐ絞り込み。</p>
-      </div>
-      <div class="point">
-        <i class="fa-solid fa-route"></i>
-        <h3>0→1手順を完全可視化</h3>
-        <p>「何からやるか分からない」を防ぐ、具体ステップ付き。</p>
-      </div>
-      <div class="point">
-        <i class="fa-solid fa-bolt"></i>
-        <h3>今日の行動が決まる</h3>
-        <p>読むだけで終わらない。今すぐ動ける設計。</p>
-      </div>
-    </section>
-
-    <p class="notice">
-      ※ この先は外部ツール（別サイト）が開きます
-    </p>
-
-    <div class="cta">
-      <a href="https://addness-kigyo-guide2026.netlify.app" target="_blank" rel="noopener">
-        OPEN WEB TOOL ↗
+    <!-- Navigation -->
+    <nav class="nav-bar">
+      <a href="../../index.html" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> BACK TO LIST
       </a>
-    </div>
+    </nav>
 
-    <footer>
-      <p>&copy; 2026 Premium Business Program</p>
-    </footer>
+    <div class="bridge-card">
+      <span class="bonus-tag">SPECIAL BONUS 05</span>
+      <h1 class="main-title">
+        起業オンライン100選<br>
+        <span>完全ガイドブック</span>
+      </h1>
+      <p class="bridge-lead">
+        「自分に何ができるか分からない」を終わらせる。<br>
+        検索・分類・実行手順まで揃えた、実践特化型Webツールです。
+      </p>
+
+      <div class="feature-grid">
+        <!-- Feature 1 -->
+        <div class="feature-item">
+          <i class="fa-solid fa-magnifying-glass feature-icon"></i>
+          <h3 class="feature-title">検索できる100アイデア</h3>
+          <p class="feature-desc">顔出しNG・AI活用・副業向けなど、条件検索ですぐ絞り込み。</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="feature-item">
+          <i class="fa-solid fa-map-location-dot feature-icon"></i>
+          <h3 class="feature-title">0→1手順を完全可視化</h3>
+          <p class="feature-desc">「何からやるか分からない」を防ぐ、具体ステップ付き。</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="feature-item">
+          <i class="fa-solid fa-bolt feature-icon"></i>
+          <h3 class="feature-title">今日の行動が決まる</h3>
+          <p class="feature-desc">読むだけで終わらない。今すぐ動ける設計。</p>
+        </div>
+      </div>
+
+      <div class="footer-action">
+        <p class="disclaimer">※ この先は外部ツール（別サイト）が開きます</p>
+        <!-- ✅ ここに実際のNetlifyのURLを貼ります -->
+        <a href="https://addness-kigyo-guide2026.netlify.app" class="btn" target="_blank" rel="noopener noreferrer">
+          OPEN WEB TOOL <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 5px;"></i>
+        </a>
+      </div>
+    </div>
 
   </div>
 </body>
 </html>
- 
